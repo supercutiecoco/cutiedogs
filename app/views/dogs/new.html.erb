@@ -1,0 +1,45 @@
+<h1>kikuno</h1>
+<h3>新規投稿ページ</h3>
+<%= form_for @dog do |f| %>
+
+
+  <div class="field">
+    <%= f.label :犬の名前 %>
+    <%= f.text_field :name, :size => 30 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :写真 %>
+    <%= f.file_field :image %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :性別  %>
+    <%= f.select :sex, 
+    [["男の子", "男の子"], 
+    ["女の子", "女の子"]], 
+    include_blank: "選択して下さい" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :犬種  %>
+    <%= f.text_area :genre, :size => 10 %>
+  </div>
+
+
+
+  <div class="field">
+    <%= f.label :かあいいポイント  %>
+    <%= f.text_area :about, :size => "30x2" %>
+  </div>
+
+  <%= f.label :youtube_url %>
+  <%= f.text_field :youtube_url, :size => 140 %>
+
+  <%= f.submit "投稿する" %>
+
+<% end %>
+
+
+

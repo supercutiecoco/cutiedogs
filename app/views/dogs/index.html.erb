@@ -1,0 +1,101 @@
+
+<div class = "dogs-index">
+  <h1>きゃわなわんちゃん一覧</h1>
+
+  <div class = "introduce">
+    <div class = "introduce1">
+      <div class = "introduce_image">
+          <%= link_to image_tag("maruchi-zu.jpg", class:"introduce_image1"), dogs_introduce1_path %>
+          <h3>マルチーズ</h3>
+      </div>
+      <div class = "introduce_image">
+          <%= link_to image_tag("chiwawa.jpg", class:"introduce_image2"), dogs_introduce2_path %>
+          <h3>チワワ</h3>
+      </div>
+      <div class = "introduce_image">
+          <%= link_to image_tag("dakkusufunndo.jpg", class:"introduce_image3"), dogs_introduce3_path %>
+          <h3>ミニチュア・ダックスフンド</h3>
+      </div>
+      <div class = "introduce_image">
+          <%= link_to image_tag("pome.jpg", class:"introduce_image4"), dogs_introduce4_path %>
+          <h3>ポメラニアン</h3>
+      </div>
+    </div>
+    <div class = "introduce2">
+      <div class = "introduce_image">
+          <%= link_to image_tag("toypoodle.jpg", class:"introduce_image5"), dogs_introduce5_path %>
+          <h3>トイ・プードル</h3>
+      </div>
+      <div class = "introduce_image">
+          <%= link_to image_tag("shunauza.jpg", class:"introduce_image6"), dogs_introduce6_path %>
+          <h3>ミニチュア・シュナウザー</h3>
+      </div>
+      <div class = "introduce_image">
+          <%= link_to image_tag("yo-kushateria.jpg", class:"introduce_image7"), dogs_introduce7_path %>
+          <h3>ヨークシャー・テリア</h3>
+      </div>
+      <div class = "introduce_image">
+          <%= link_to image_tag("shibainu.jpg", class:"introduce_image8"), dogs_introduce8_path %>
+          <h3>柴犬</h3>
+      </div>
+    </div>
+    <div class = "introduce3">
+      <div class = "introduce_image">
+          <%= link_to image_tag("burudog.jpg", class:"introduce_image9"), dogs_introduce9_path %>
+          <h3>ブルドッグ</h3>
+      </div>
+      <div class = "introduce_image">
+        <%= link_to image_tag("ko-gi-.jpg", class:"introduce_image10"), dogs_introduce10_path %>
+        <h3>コーギー</h3>
+      </div>
+      <div class = "introduce_image">
+          <%= link_to image_tag("retoriba-.jpg", class:"introduce_image11"), dogs_introduce11_path %>
+          <h3>ゴールデンレトリバー</h3>
+      </div>
+      <div class = "introduce_image">
+          <%= link_to image_tag("bo-da-kori-.jpg", class:"introduce_image12"), dogs_introduce12_path %>
+          <h3>ボーダーコリー</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="botton">
+
+  </div>
+  <div class="dogs-container">
+    <% if user_signed_in? %>
+      <%= link_to "マイページへ", user_path(current_user.id) %>
+    <% end %>
+
+    <h3>一覧ページ</h3>
+
+    <% @dogs.each do |t| %>
+      <div class="dog">
+      
+        <%= image_tag t.image_url, size: "250x200" if t.image? %>
+        <%= t.name %>
+        <%= t.genre %>
+        <%= t.about %>
+        
+
+
+        <% if user_signed_in? %>
+          <% if current_user.already_liked?(t) %>
+              <%= link_to dog_like_path(id: t.id, dog_id: t.id), method: :delete do %>
+                <i class="fas fa-heart"></i><%= t.likes.count %>
+              <% end %>
+          <% else %>
+              <%= link_to dog_likes_path(id: t.id, dog_id: t.id), method: :post do %>
+                <i class="far fa-heart"></i><%= t.likes.count %>
+              <% end %>
+          <% end %>
+        <% else %>
+          <i class="far fa-heart"></i><%= t.likes.count %>
+        <% end %>
+
+        <%= link_to "詳細へ", dog_path(t.id) %>
+        
+      </div>
+    <% end %>
+  </div>
+</div>

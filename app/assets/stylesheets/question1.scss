@@ -1,0 +1,51 @@
+// Place all the styles related to the perfumes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.question1_image1{
+    object-fit: cover;
+    width:200px;
+    height:200px;
+}
+
+.question1_image2{
+    object-fit: cover;
+    width:200px;
+    height:200px;
+}
+
+.question1_image3{
+    object-fit: cover;
+    width:200px;
+    height:200px;
+}
+
+.question1 h1{
+    text-align: center;
+}
+
+.question1{
+    background-color: #ffffff;
+    height: 1000px;
+    text-align: center;
+}
+
+.question1_image1_1{
+    margin:10px;
+}
+
+.question1_image2_1{
+    margin:10px;
+}
+
+.question1_image3_1{
+    margin:10px;
+}
+
+
+
+
+.question1_1{
+    display:flex;
+    justify-content: center;
+}
