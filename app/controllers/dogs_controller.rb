@@ -42,11 +42,6 @@ class DogsController < ApplicationController
       redirect_to action: :index
     end
 
-    private
-      def dog_params
-        params.require(:dog).permit(:name, :genre, :about, :use_id, :image, :youtube_url)
-      end
-
     def introduce1
     end
 
@@ -83,6 +78,9 @@ class DogsController < ApplicationController
     def introduce12
     end
 
-
+    private
+    def dog_params
+      params.require(:dog).permit(:name, :genre, :about, :user_id, :image, :youtube_url)
+    end
 
 end
