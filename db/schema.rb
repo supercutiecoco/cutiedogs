@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_25_144332) do
+ActiveRecord::Schema.define(version: 2024_04_25_140413) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 2024_04_25_144332) do
     t.string "sex"
     t.text "about"
     t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.string "image"
     t.string "youtube_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "likes", force: :cascade do |t|

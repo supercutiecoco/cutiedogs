@@ -6,6 +6,8 @@ class CreateDogs < ActiveRecord::Migration[6.1]
       t.string :sex
       t.text :about
       t.integer :user_id
+      t.string :image
+      t.string :youtube_url
 
       t.timestamps
     end
