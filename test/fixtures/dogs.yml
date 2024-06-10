@@ -2,12 +2,6 @@
 
 one:
   name: MyString
-  genre: MyString
-  about: MyText
-  user_id: 1
 
 two:
   name: MyString
-  genre: MyString
-  about: MyText
-  user_id: 1

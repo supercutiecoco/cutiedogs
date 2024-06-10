@@ -8,7 +8,7 @@ class CreateDogs < ActiveRecord::Migration[6.1]
       t.integer :user_id
       t.string :image
       t.string :youtube_url
-
+      
       t.timestamps
     end
   end
